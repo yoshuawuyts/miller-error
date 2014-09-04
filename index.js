@@ -9,7 +9,7 @@ var miller = require('miller');
  */
 
 module.exports = miller({
-  module: 'string',
+  error: 'object',
   message: 'string',
   statusCode: 'number',
 });

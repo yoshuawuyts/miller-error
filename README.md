@@ -15,7 +15,7 @@ Validate an object. Either throws a `TypeError` or returns the same object.
 var errSchema = require('miller-error');
 
 errSchema({
-  module: 'forms/login',
+  error: new Error('login error'),
   message: 'Whoops, something went wrong with the login',
   statusCode: 1
 });

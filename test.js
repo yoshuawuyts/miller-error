@@ -17,9 +17,28 @@ describe('miller-error()', function() {
       .should.throw;
 
     errSchema.bind(errSchema, {
-      module: 'myModule',
+      error: {},
       message: 'a super important message',
       statusCode: 1
     }).should.not.throw;
   });
+
+  it('should return an object', function() {
+    var obj = errSchema({
+      error: new Error('super duper'),
+      message: 'a super important message',
+      statusCode: 1
+    });
+    obj.should.be.of.type('object');
+  })
+
+  it('should handle error object', function() {
+    errSchema.bind(errSchema, {
+      error: new Error('super duper'),
+      message: 'a super important message',
+      statusCode: 1
+    }).should.not.throw;
+  });
+
+
 });
